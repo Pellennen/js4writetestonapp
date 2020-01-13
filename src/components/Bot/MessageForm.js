@@ -23,6 +23,7 @@ class MessageForm extends Component {
     return (
       <form onSubmit={this.onSubmit} className="mx-auto">
         <input
+          id="message"
           type="text"
           name="userMessage"
           onChange={this.onChange}
@@ -40,7 +41,7 @@ class MessageForm extends Component {
 }
 
 MessageForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func
 };
 
 export default MessageForm;

@@ -17,4 +17,4 @@ test('Page should change on click and change back', () => {
   expect(wrapper.state('currentPage')).toContain('bot')
   wrapper.find('Button').simulate('click');
   expect(wrapper.state('currentPage')).toContain('home')
-})
+});
