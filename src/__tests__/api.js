@@ -37,7 +37,7 @@ test("should remove comment", () => {
   const commentObj = api.createCommentObject(comment, postId, author);
   api.storeCommentObject([commentObj]);
   api.removeComment(commentObj.id);
-  expect(api.fetchAllComments()).toStrictEqual([]);
+  expect(api.fetchAllComments()).toHaveLength(0);
 });
 
 test("should remove post", () => {
@@ -47,5 +47,5 @@ test("should remove post", () => {
   const postObj = api.createPostObject(title, content, author);
   api.storePostObject([postObj]);
   api.removePost(postObj.id);
-  expect(api.fetchAllPosts()).toStrictEqual([]);
+  expect(api.fetchAllPosts()).toHaveLength(0);
 });

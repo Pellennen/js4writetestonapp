@@ -23,8 +23,14 @@ test('test if onChange method works', () => {
     expect(wrapper.state('userMessage')).toContain('HelloRobot')
 })
 
-test('test', () => {
-   const wrapper = mount(<Bot/>)
-   wrapper.instance().sendReply()
-   console.log(wrapper.state('messages'))
+test('test message get saved to state when submitted', () => {
+    const wrapper = mount(<Bot/>)
+    const wrapper2 = mount(<MessageForm/>)
+    wrapper.find('#message').simulate('change', {
+      target : {value:'HelloRobot', name: 'userMessage'}
+    })
+
+    wrapper.find('MessageForm').simulate('submit')
+    expect(wrapper.state('messages')).toHaveLength(1)
+
 })
